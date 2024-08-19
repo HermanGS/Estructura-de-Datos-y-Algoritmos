@@ -1,3 +1,4 @@
+
 import numpy as np
 
 class Pila:
@@ -8,7 +9,8 @@ class Pila:
     def __init__(self, cant=20, tope=-1): #la dimension(cantidad) del arreglo debe ser estatico
         self.__cant = cant
         self.__tope = tope
-        self.__items = np.empty(self.__cant,dtype=int) #puede ser otro tipo de dato
+        self.__items = np.empty(cant,dtype=int) #puede ser otro tipo de dato
+        
 
     def vacia(self):
         retorno = True
@@ -35,6 +37,6 @@ class Pila:
         if  self.vacia():
             print("pila vacia")
         else:
-            for i in range(self.__cant-1):
+            for i in range(self.__cant):
                 print("{}".format(self.__items[i]))
     
