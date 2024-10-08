@@ -48,8 +48,8 @@ class tablahash:
         # 0 es el valor por defecto que hace que nos demos cuenta de que la celda está desocupada
 
         if self.__tabla[h]  == 0:
-            
             self.__tabla[h] = elemento
+            self.__cant += 1  # Incrementar el contador de elementos
             
         else:
             while self.__tabla[h] != 0 and  contador < self.__dimension  :   #  h != hinicial NO ANDA  # contador < self.__dimension
@@ -64,10 +64,13 @@ class tablahash:
             # v2 :
             if self.__tabla[h] == 0: 
                 self.__tabla[h] = elemento 
+                self.__cant += 1  # Incrementar el contador de elementos
 
 
             else:
                 print("la tabla está llena")
+
+        return contador
 
 
     def insertar2(self, elemento):
@@ -77,7 +80,7 @@ class tablahash:
 
         # 0 es el valor por defecto que hace que nos demos cuenta de que la celda está desocupada
         while self.__tabla[h] != 0 and contador < self.__dimension:
-            h = (h + 1) % self.__dimension  # Avanzar hacia adelante en prueba lineal
+            h = (h - 1) % self.__dimension  # Avanzar hacia adelante en prueba lineal
             contador += 1
 
         if self.__tabla[h] == 0:
@@ -98,7 +101,7 @@ class tablahash:
         h = self.hashing(elemento)
         i = h
         count = 0
-        while self.__tabla[i] != elemento and i != h:
+        while self.__tabla[i] != elemento and count != self.__dimension:    # {i ! h} no se cumple  reemplazo por    {count != self.__dimension}
             i = (i + 1) % self.__dimension
             count += 1
         return count
@@ -130,18 +133,19 @@ if __name__ == "__main__":
     #abla.insertardirecto(5)
     #tabla.mostrar()
 
-    for i in range(1000):
+    for i in range(90):
         #print(f"{i}  ==>  {random.random()}")
 
         valor_random = random.randint(0,999)
 
-        tabla.insertar(valor_random)
-    
+        longitudSP = tabla.insertar(valor_random)
+        print("en el indice ",i,"la longitud del valor ",valor_random," es ",longitudSP,"\n\n\n")
     tabla.mostrar()
         
 
     print("ahora vamos a ver cuanto es la longitud de la secuencia de prueba lineal de la ultima inserción : ",valor_random )
     print("longitud : ",tabla.buscar(valor_random))
+    print("longitud : ",tabla.buscar(542))
         
 
 
