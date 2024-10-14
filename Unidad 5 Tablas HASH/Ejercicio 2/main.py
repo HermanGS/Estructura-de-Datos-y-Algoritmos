@@ -43,10 +43,10 @@ class tablahash:
 
 
             parte = str(k)
-            if parte == 1:
+            if len(parte) == 1:
                 parte = parte[-1:]
                 
-            elif parte > 1:
+            elif len(parte) > 1:
                 parte = parte[-2:]
 
             parte = int(parte)
@@ -76,7 +76,7 @@ class tablahash:
     
     def insertar(self,elemento):
         
-        h = self.hashing(elemento,'division')
+        h = self.hashing(elemento,'extraccion')
         hinicial = h
         
         contador = 0
@@ -219,6 +219,18 @@ al CREAR la TABLA HASH hay que INICIALIZAR o cerear :
 lo ideal sería INICIALIZAR con un objeto de datos que tenga 2 CAMPOS 1 campo para el DATO y OTRO campo para DISPONIBILIDAD
 
 (dato (cualquier objeto de datos), Ocupado = True/False)
+
+
+
+(4)
+
+Depende de los datos pero para poder ingresar correctamente Datos a la Tabla Hash
+se debe analizar bien los datos 
+determinar bien la función de Transformación viendo los datos
+
+depende mucho de M  (tamaño de la TABLA HASH)
+
+pero tiene que haber un equilibrio entre la parte variable y la longitud ( se tiene que parecer a M)
 
 
 

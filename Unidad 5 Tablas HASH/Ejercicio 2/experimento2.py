@@ -14,4 +14,13 @@ def main2():
 
     print('numero = ',numero,'parte = ',parte)
 
-main2()
+import numpy as np
+def main3():
+
+
+    arreglo = np.array([1, 2, 3, 4, 5])
+    longitud = len(arreglo)  # También devuelve la cantidad de elementos
+    print(longitud)
+
+
+main3()
