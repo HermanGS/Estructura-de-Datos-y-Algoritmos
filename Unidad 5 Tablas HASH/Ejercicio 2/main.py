@@ -39,8 +39,18 @@ class tablahash:
         if metodo == 'division':
             return (  round(k % self.__dimension) ) # M is self.__dimension   #round para redondear
         
-        elif metodo == 'extraccion':
-            return (    (round(k % self.__dimension))  )
+        elif metodo == 'extraccion': #Solamente extrae la parte más varible
+
+
+            parte = str(k)
+            if parte == 1:
+                parte = parte[-1:]
+                
+            elif parte > 1:
+                parte = parte[-2:]
+
+            parte = int(parte)
+            return     (round( parte % self.__dimension))  
 
         elif metodo == 'plegado':
             return
@@ -159,7 +169,7 @@ if __name__ == "__main__":
     #abla.insertardirecto(5)
     #tabla.mostrar()
 
-    for i in range(90):
+    for i in range(1000):
         #print(f"{i}  ==>  {random.random()}")
 
         valor_random = random.randint(0,999)
@@ -173,4 +183,55 @@ if __name__ == "__main__":
     print("longitud : ",tabla.buscar(valor_random))
     print("longitud : ",tabla.buscar(542))
         
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+(1)
+Siempre definir un arreglo de mayor cantidad que el numero de elementos que queremos almacenar si es de 1000 elementos
+que la tabla hash sea un arreglo de 1309 por ejemplo, es FUNDAMENTAL ==> estaría mal si no se hace (FACTOR DE CARGA) == > N/M < 0
+(1.2)
+y que como plus sea un número PRIMO para que cuando se hagan los saltos En DIRECCIONAMIENTO ABIERTO
+Sea mas PROBABLE caer en un ESPACIO BLANCO o VACIO
+
+(2)
+se busca y se inserta con la misma función de transformación es FUNDAMENTAL
+para que se pueda establecer que
+AL BUSCAR si NO se encuentra que deje de buscar cuando encuentre un espacio vacío
+
+(3)
+al CREAR la TABLA HASH hay que INICIALIZAR o cerear :
+
+lo ideal sería INICIALIZAR con un objeto de datos que tenga 2 CAMPOS 1 campo para el DATO y OTRO campo para DISPONIBILIDAD
+
+(dato (cualquier objeto de datos), Ocupado = True/False)
+
+
+
+
+
+
+
+
+
+
+'''
+
+
+
+
 
