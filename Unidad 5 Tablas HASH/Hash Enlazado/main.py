@@ -204,6 +204,9 @@ class tablahash:
 
 
     def buscar(self,x):
+
+        #buscar propiamente con h hace que no tengamos que recorrer todo el arreglo
+
         h = self.hashing(x,'division')
 
         
