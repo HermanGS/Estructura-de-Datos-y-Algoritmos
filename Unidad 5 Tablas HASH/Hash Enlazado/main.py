@@ -201,7 +201,28 @@ class tablahash:
         nuevoNodo = Nodo(x)
         nuevoNodo.setSig(self.__tabla[h])
         self.__tabla[h] = nuevoNodo
+
+
+    def buscar(self,x):
+        h = self.hashing(x,'division')
+
         
+        aux = self.__tabla[h]
+        bandera = False
+
+        while aux != None and x != aux.getDato():
+            aux = aux.getSig()
+            
+        if aux != None:
+            bandera = True
+            return f'Se encontro : {bandera} , valor encontrado : {aux.getDato()}'
+        else:
+            return f'No se encontro el valor {x}'
+        
+            
+            
+
+
     def mostrar(self): #simple sin mostrar a qué campo pertenece
         
         for i in range(self.__dimension):
@@ -240,7 +261,13 @@ if __name__ == '__main__':
         tabla.insertar(random.randint(0,99))
 
 
+    #tabla.insertar(55)
+
     tabla.mostrar_2()
+
+    print( tabla.buscar(22) )
+
+
 
     
 
