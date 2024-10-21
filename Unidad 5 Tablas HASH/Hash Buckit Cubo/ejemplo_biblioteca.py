@@ -11,6 +11,8 @@ class buckets:
         self.__cant_claves = np.zeros(self.__dimension)
         self.__overflow = claves/buckets
 
+        
+
     def metodo_division(self, clave, c, b):
         return clave % (c/b)                #hace el modulo con la clave/buckets para que caiga en el area primaria y no en overflow
 
